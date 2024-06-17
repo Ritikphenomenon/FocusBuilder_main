@@ -20,7 +20,7 @@ const TodoSearch = ({ searchQuery, setSearchQuery, handleSearch }) => {
 
       <input
         type="text"
-        className="w-[577px] h-[44px] text-white rounded-[8px] border border-[#D1D1D1] p-[14px 16px] gap-[10px] bg-neutral-800 p-2"
+        className="w-[577px] h-[44px] text-white rounded-[8px] border border-[#D1D1D1] p-[14px 16px] gap-[10px] bg-neutral-800 p-2 focus:border-blue-500 focus:outline-none"
         placeholder="Search a task"
         value={search}
         onChange={handleChange}

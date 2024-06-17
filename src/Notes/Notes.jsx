@@ -15,11 +15,14 @@ const Notes = () => {
   const fetchNotes = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/notes/note`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/notes/note`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setNotes(response.data);
     } catch (error) {
       console.error("Error fetching notes:", error);
@@ -47,11 +50,14 @@ const Notes = () => {
   const deleteNote = async (noteId) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`${import.meta.env.VITE_API_URL}/notes/note/${noteId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.delete(
+        `${import.meta.env.VITE_API_URL}/notes/note/${noteId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setNotes(notes.filter((note) => note._id !== noteId));
     } catch (error) {
       console.error("Error deleting note:", error);
@@ -88,20 +94,27 @@ const Notes = () => {
       note.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     const nonMatchingNotes = notes.filter(
-      (note) =>
-        !note.title.toLowerCase().includes(searchQuery.toLowerCase())
+      (note) => !note.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     return [...filteredNotes, ...nonMatchingNotes];
   };
 
-  
   const filteredNotes = getFilteredNotes();
   const totalCount = notes.length;
 
   return (
     <div className="flex items-center justify-center">
-      <div className=" shadow-md rounded-lg w-[703px] h-[480px] p-[36px]" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }} >
-        <h1 className="text-3xl font-bold text-[white] mb-4 text-center">NOTES</h1>
+      <div
+        className=" shadow-md rounded-lg w-[703px] h-[480px] p-[36px] mb-7 backdrop-blur-lg
+        relative "
+        style={{
+          background:
+            "linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)",
+        }}
+      >
+        <h1 className="text-3xl font-bold text-[white] mb-4 text-center">
+          NOTES
+        </h1>
         <NoteSearch
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
@@ -126,7 +139,11 @@ const Notes = () => {
               className="mt-4 max-h-60 overflow-y-auto overflow-x-auto"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              <NoteList notes={filteredNotes} onDelete={deleteNote} onEdit={editNote} />
+              <NoteList
+                notes={filteredNotes}
+                onDelete={deleteNote}
+                onEdit={editNote}
+              />
             </div>
 
             <div className="flex justify-end mt-4">

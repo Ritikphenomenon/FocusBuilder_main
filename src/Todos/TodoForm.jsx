@@ -7,6 +7,7 @@ const TodoForm = ({ onAddTodo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!description.trim()) return;
+
     onAddTodo(description.trim());
     setDescription("");
     setIsModalVisible(false); // Hide the modal after submitting
@@ -21,17 +22,17 @@ const TodoForm = ({ onAddTodo }) => {
       <img
         src="/add_circle.png"
         alt="add"
+        className="bg-blue-500"
         onClick={toggleModalVisibility}
         style={{
           width: "40px",
           height: "40px",
           borderRadius: "40px",
           cursor: "pointer",
-          opacity: isModalVisible ? 0.5 : 1,
+          opacity: isModalVisible ? 2 : 4,
           pointerEvents: "auto",
           gap: "10px",
-          padding: "4px",
-          backgroundColor: "rgb(59 130 246 / var(--tw-bg-opacity))",
+          padding: "12px"
         }}
       />
 
@@ -46,13 +47,13 @@ const TodoForm = ({ onAddTodo }) => {
             </h2>
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col flex-grow space-y-4"
+              className="flex flex-col flex-grow  space-y-4"
             >
               <input
                 type="text"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="borderfocus:outline-none focus:border-indigo-700 rounded-md px-4 py-2 w-full bg-neutral-700 text-white"
+                className="border rounded-md px-4 py-2 w-full bg-neutral-800 text-white focus:border-blue-500 focus:outline-none "
                 placeholder="Input your todos...."
               />
               <div className="flex-grow"></div> {/* Spacer element */}
@@ -66,7 +67,7 @@ const TodoForm = ({ onAddTodo }) => {
                 </button>
                 <button
                   type="submit"
-                  className="bg-[#6B63FF] w-[85px] h-[44px] rounded-md px-5 py-2 text-white"
+                  className="bg-blue-500 w-[85px] h-[44px] rounded-md px-5 py-2 text-white"
                 >
                   APPLY
                 </button>

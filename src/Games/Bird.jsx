@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
+
 const BIRD_HEIGHT = 28;
 const BIRD_WIDTH = 28;
-const WALL_HEIGHT = 450;
+const WALL_HEIGHT = 480;
 const WALL_WIDTH = 800;
 const GRAVITY = 5;
 const OBJ_WIDTH = 50;
@@ -62,7 +63,7 @@ function BirdGame() {
   };
 
   return (
-    <Home onClick={handleClick}>
+    <Home onClick={handleClick} className="mb-4">
       <Background height={WALL_HEIGHT} width={WALL_WIDTH}>
         <ScoreShow>Score: {score}</ScoreShow>
         {!isStart && <Startboard>Click To Start</Startboard>}

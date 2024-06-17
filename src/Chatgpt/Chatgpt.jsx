@@ -31,26 +31,29 @@ function Chatgpt() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center" style={{backgroundColor:'rgb(0,0,0,0.8'}}>
-      <div className="w-[600px] h-[500px] gap-1 rounded shadow-lg flex flex-col">
+    <div className="flex flex-col items-center justify-center backdrop-blur-lg relative w-[703px] h-[480px] p-[36px] mb-7" style={{
+      background:
+        "linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)",
+    }}>
+      <div className="  gap-1 rounded  flex flex-col">
         <div className="flex justify-center mt-2">
           <img src="/Frame44.png" alt="logo" className="mt-1 w-20 h-20" />
           <p className="text-2xl w-28 h-8 font-montserrat text-white ml-2">ChatGPT</p>
         </div>
 
         {answer !== "" ? (
-          <div className="flex ml-12 items-start w-auto h-12">
+          <div className="flex items-start w-auto h-12">
             <img src={userProfile.profilePhoto} alt="icon" className="w-10 h-10 rounded-full mr-6 mt-1 mb-1" />
-            <p className="w-96 h-12 text-white bg-neutral-800 p-2 overflow-hidden rounded mr-2">{question}</p>
+            <p className="w-[570px] h-12 text-white bg-neutral-800 p-2 overflow-hidden rounded mr-2">{question}</p>
           </div>
         ) : (
           <div></div>
         )}
 
-        <div className="flex-grow flex flex-col justify-center items-center mt-6">
+        <div className="flex-grow flex flex-col justify-center items-center mt-3">
           {answer !== "" ? (
             <textarea
-              className="w-[500px] h-48 rounded p-2 bg-neutral-700 my-1 resize-none  text-sm leading-5 font-inter font-normal text-white"
+              className="w-[555px] h-48 rounded p-2 bg-neutral-800  resize-none  text-sm leading-5 font-inter font-normal text-white ml-14"
               value={answer}
               readOnly
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
@@ -62,7 +65,7 @@ function Chatgpt() {
           )}
 
           <form onSubmit={generateAnswer} className="w-full text-center mt-auto">
-            <div className="flex w-[500px] h-12 gap-8 justify-center items-center  mt-2 ml-9">
+            <div className="flex w-[600px] h-12 gap-8 justify-center items-center  mt-8 ml-7">
               <input
                 type="text"
                 required
@@ -82,7 +85,7 @@ function Chatgpt() {
           </form>
         </div>
 
-        <div className="flex justify-center mt-2 h-8 text-xs font-jakarta-sans font-sm  text-gray-300">
+        <div className="flex justify-end mt-2 h-8 text-xs font-jakarta-sans font-sm  text-gray-300 mr-8">
           Free Research Preview. ChatGPT may produce inaccurate information. <span className="font-montserrat text-gray-400 underline">ChatGPT May 12 Version</span>
         </div>
       </div>

@@ -13,6 +13,7 @@ const NoteForm = ({ onSubmit, initialValue = {} }) => {
     setIsModalVisible(false); // Hide the modal after submitting
   };
 
+  
   const toggleModalVisibility = () => {
     setIsModalVisible(!isModalVisible);
   };
@@ -23,7 +24,7 @@ const NoteForm = ({ onSubmit, initialValue = {} }) => {
         <img
           src="/add_circle.png"
           alt="add"
-            className="bg-blue-500"
+            className="bg-blue-500 "
           onClick={toggleModalVisibility}
           style={{
             width: "40px",
@@ -33,13 +34,13 @@ const NoteForm = ({ onSubmit, initialValue = {} }) => {
             opacity: isModalVisible ? 2 : 4,
             pointerEvents: "auto",
             gap: "10px",
-            padding: "4px"
+            padding: "12px"
           }}
         />
 
         {isModalVisible && (
           <div className="fixed inset-0 flex items-center justify-center z-50">
-            <div className="bg-gray-800 rounded-xl p-6 w-[551px] h-[400px]  mx-1 gap-[10px] flex flex-col"  >
+            <div className="bg-neutral-800 rounded-xl p-6 w-[551px] h-[400px]  mx-1 gap-[10px] flex flex-col"  >
               <h2
                 className="font-sans font-bold text-2xl leading-8 text-white text-center mb-3"
                 style={{ fontFamily: "Montserrat" }}
@@ -54,8 +55,8 @@ const NoteForm = ({ onSubmit, initialValue = {} }) => {
                   type="text"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="border border-blue-500 rounded-md pt-[8px] pr-[16px] pb-[8px] pl-[16px] py-2 w-[503px] h-[38px] gap-[436px]
-                  text-white bg-gray-800 font-semibold"
+                  className="border rounded-md pt-[8px] pr-[16px] pb-[8px] pl-[16px] py-2 w-[503px] h-[38px] gap-[436px]
+                  text-white bg-neutral-800 font-semibold  focus:border-blue-500 focus:outline-none"
                   placeholder="Heading"
                 />
                 <textarea
@@ -63,10 +64,11 @@ const NoteForm = ({ onSubmit, initialValue = {} }) => {
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   className="border pt-[8px] pr-[16px] pb-[8px] pl-[16px] py-2
-                  bg-gray-800  rounded-md  mb-8 w-[503px] h-[137px] text-white font-thin "
+                 bg-neutral-800  rounded-md  mb-8 w-[503px] h-[137px] text-white font-thin  focus:border-blue-500 focus:outline-none "
                   style={{ scrollbarWidth: "none", msOverflowStyle: "none"  }}
                  
                 ></textarea>
+
 
                 <div className="flex-grow"></div> {/* Spacer element */}
                 <div className="flex justify-between">
@@ -79,7 +81,7 @@ const NoteForm = ({ onSubmit, initialValue = {} }) => {
                   </button>
                   <button
                     type="submit"
-                    className="bg-[#6B63FF] w-[85px] h-[44px] rounded-md px-5 py-2 text-white"
+                    className="bg-blue-500 w-[85px] h-[44px] rounded-md px-5 py-2 text-white"
                   >
                     APPLY
                   </button>

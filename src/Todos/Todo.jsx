@@ -102,19 +102,29 @@ const Todo = () => {
   const totalCount = todos.length;
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 w-[540px] max-h-[85vh] overflow-hidden relative z-40"  style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
-      <h1 className="text-2xl font-bold mb-3 text-center text-white">TODO LIST</h1>
+    <div className="  rounded-lg   w-[703px] h-[470px]  relative  backdrop-blur-lg mb-4"   style={{
+      background:
+        "linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)",
+    }}>
+      <h1 className="text-2xl font-bold mb-3  text-center text-white">TODO LIST</h1>
       <TodoSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSearch={handleSearch}  />
       {totalCount === 0 ? (
-        <div className="flex flex-col items-center justify-center h-[260px] relative">
-          <img src="./Frame8.png" alt="No todos" className="h-[130px] w-[170px]" />
-          <div className="absolute bottom-0 right-0">
+        <div>
+        <div className="flex flex-col justify-center items-center ">
+          <img src="./Frame8.png" alt="No todos" className="h-[200px] w-[240px] mt-16 " />
+          <div className="absolute bottom-7 right-7">
             <TodoForm onAddTodo={handleAddTodo} />
           </div>
-        </div>
+          </div>
+          <hr className="mt-16 " />
+          <div className="mt-1 text-sm ml-3 text-white">
+            Completed {completedCount} out of {totalCount}
+          </div>
+          </div>
+       
       ) : (
         <>
-          <div className="mt-3 max-h-[260px] overflow-y-auto" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
+          <div className="mt-3 h-[250px] overflow-y-auto" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
             {filteredTodos.map((todo, index) => (
               <TodoItem
                 key={todo._id}
@@ -127,11 +137,13 @@ const Todo = () => {
               />
             ))}
           </div>
-          <div className="absolute bottom-0 right-0 mb-6 mr-6">
+
+          <div className="absolute bottom-8 right-3">
             <TodoForm onAddTodo={handleAddTodo} />
           </div>
-          <hr className="mt-3" />
-          <div className="mt-2 text-sm text-center text-white">
+
+          <hr className="mt-20" />
+          <div className="mt-1 text-sm ml-3 text-white">
             Completed {completedCount} out of {totalCount}
           </div>
         </>
