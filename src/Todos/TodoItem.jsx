@@ -19,7 +19,7 @@ const TodoItem = ({ todo, index, onDelete, onComplete, onMoveUp, onMoveDown }) =
   };
 
   return (
-    <div className="flex items-center justify-between h-[26px] mb-[24px] w-[660px] ml-8 ">
+    <div className="flex items-center justify-between h-[26px] mb-[24px] w-[660px] ml-6 ">
      
      <div className='flex items-center flex-1 overflow-y-auto'>
   <input

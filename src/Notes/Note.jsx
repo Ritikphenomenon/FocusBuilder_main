@@ -9,7 +9,7 @@ const Note = ({ id, initialTitle, initialContent, onDelete, onSave }) => {
   };
 
   return (
-    <div className="w-[327px] h-[170px] border #FFFFFF rounded-[14px]  gap-4 p-4 shadow-md bg-neutral-800 " >
+    <div className="w-[327px] h-[170px] border #FFFFFF rounded-[14px]   p-4 shadow-md bg-neutral-800 " >
       <div className="flex">
         <input
           type="text"

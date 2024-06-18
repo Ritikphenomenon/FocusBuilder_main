@@ -183,8 +183,8 @@ function Home() {
       </Modal>
 
       <dialog id="my_modal_2" className="modal">
-        <form method="dialog" className="modal-backdrop">
-          <Background option={option} setOption={setOption} />
+        <form method="dialog" className="modal-backdrop ">
+          <Background option={option} setOption={setOption}  />
           <button></button>
         </form>
       </dialog>

@@ -26,7 +26,7 @@ const Navbar = () => {
       <img src="./focusmate.png" alt="Focusmate Logo" className="ml-[24px] w-30 h-8" /> {/* Adjust the margin-left as per your requirement */}
       
       {userProfile && (
-        <div className="relative mr-[24px]"> {/* Adjust the margin-right as per your requirement */}
+        <div className="relative mr-[28px]"> {/* Adjust the margin-right as per your requirement */}
           <img
             src={userProfile.profilePhoto}
             alt={userProfile.name}

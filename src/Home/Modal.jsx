@@ -6,12 +6,12 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="fixed inset-0 bg-neutral-800 bg-opacity-50" onClick={onClose}></div>
-      <div className="relative rounded-lg shadow-lg p-5 z-10">
+      <div className="relative rounded-lg shadow-lg p-2 z-10">
         <button
-          className="absolute top-8 right-7 text-white rounded-full p-1 z-20"
+          className="absolute top-8 right-7 text-white rounded-[29px]   z-20 bg-black w-[24px] h-[24px] "
           onClick={onClose}
         >
-          ✕
+        <img src="./icons/cancel.png" alt="no image" />
         </button>
         {children}
       </div>

@@ -22,7 +22,7 @@ const TodoForm = ({ onAddTodo }) => {
       <img
         src="/add_circle.png"
         alt="add"
-        className="bg-blue-500"
+        className="bg-blue-700"
         onClick={toggleModalVisibility}
         style={{
           width: "40px",

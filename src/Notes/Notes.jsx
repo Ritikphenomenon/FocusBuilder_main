@@ -105,14 +105,14 @@ const Notes = () => {
   return (
     <div className="flex items-center justify-center">
       <div
-        className=" shadow-md rounded-lg w-[703px] h-[480px] p-[36px] mb-7 backdrop-blur-lg
+        className=" shadow-md rounded-lg w-[740px] h-[480px] p-[14px] mb-7 backdrop-blur-lg
         relative "
         style={{
           background:
             "linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)",
         }}
       >
-        <h1 className="text-3xl font-bold text-[white] mb-4 text-center">
+        <h1 className="text-3xl font-bold text-[white] mb-4  text-center">
           NOTES
         </h1>
         <NoteSearch
@@ -136,7 +136,7 @@ const Notes = () => {
         ) : (
           <>
             <div
-              className="mt-4 max-h-60 overflow-y-auto overflow-x-auto"
+              className="mt-4 h-[270px] overflow-y-auto overflow-x-auto"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               <NoteList

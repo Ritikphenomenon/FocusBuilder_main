@@ -102,7 +102,7 @@ const Todo = () => {
   const totalCount = todos.length;
 
   return (
-    <div className="  rounded-lg   w-[703px] h-[470px]  relative  backdrop-blur-lg mb-4"   style={{
+    <div className="  rounded-lg   w-[713px] h-[460px]  relative  backdrop-blur-lg mb-4 py-4 "   style={{
       background:
         "linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)",
     }}>
@@ -116,7 +116,7 @@ const Todo = () => {
             <TodoForm onAddTodo={handleAddTodo} />
           </div>
           </div>
-          <hr className="mt-16 " />
+          <hr className="mt-10 " />
           <div className="mt-1 text-sm ml-3 text-white">
             Completed {completedCount} out of {totalCount}
           </div>
@@ -142,13 +142,13 @@ const Todo = () => {
             <TodoForm onAddTodo={handleAddTodo} />
           </div>
 
-          <hr className="mt-20" />
+          <hr className="mt-14" />
           <div className="mt-1 text-sm ml-3 text-white">
             Completed {completedCount} out of {totalCount}
           </div>
         </>
       )}
-    </div>
+    </div> 
   );
 };
 

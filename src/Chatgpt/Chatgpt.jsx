@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import useUserProfile from '../Navbar/useUserProfile';
+import useUserProfile from "../Navbar/useUserProfile";
 
 function Chatgpt() {
   const [question, setQuestion] = useState("");
@@ -14,7 +14,9 @@ function Chatgpt() {
     setAnswer("Loading your answer...  It might take up to 10 seconds");
     try {
       const response = await axios({
-        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${import.meta.env.VITE_GEM_API_KEY}`,
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${
+          import.meta.env.VITE_GEM_API_KEY
+        }`,
         method: "post",
         data: {
           contents: [{ parts: [{ text: question }] }],
@@ -31,20 +33,31 @@ function Chatgpt() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center backdrop-blur-lg relative w-[703px] h-[480px] p-[36px] mb-7" style={{
-      background:
-        "linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)",
-    }}>
-      <div className="  gap-1 rounded  flex flex-col">
+    <div
+      className="flex flex-col items-center justify-center backdrop-blur-lg relative w-[703px] h-[490px] p-[36px] mb-7"
+      style={{
+        background:
+          "linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)",
+      }}
+    >
+      <div className="  gap-1 rounded  flex flex-col mt-3">
         <div className="flex justify-center mt-2">
           <img src="/Frame44.png" alt="logo" className="mt-1 w-20 h-20" />
-          <p className="text-2xl w-28 h-8 font-montserrat text-white ml-2">ChatGPT</p>
+          <p className="text-2xl w-28 h-8 font-montserrat text-white mt-1">
+            ChatGPT
+          </p>
         </div>
 
         {answer !== "" ? (
           <div className="flex items-start w-auto h-12">
-            <img src={userProfile.profilePhoto} alt="icon" className="w-10 h-10 rounded-full mr-6 mt-1 mb-1" />
-            <p className="w-[570px] h-12 text-white bg-neutral-800 p-2 overflow-hidden rounded mr-2">{question}</p>
+            <img
+              src={userProfile.profilePhoto}
+              alt="icon"
+              className="w-10 h-10 rounded-full mr-6 mt-1 mb-1"
+            />
+            <p className="w-[570px] h-12 text-white bg-neutral-800 p-3 overflow-hidden rounded mr-2">
+              {question}
+            </p>
           </div>
         ) : (
           <div></div>
@@ -64,7 +77,10 @@ function Chatgpt() {
             </div>
           )}
 
-          <form onSubmit={generateAnswer} className="w-full text-center mt-auto">
+          <form
+            onSubmit={generateAnswer}
+            className="w-full text-center mt-auto"
+          >
             <div className="flex w-[600px] h-12 gap-8 justify-center items-center  mt-8 ml-7">
               <input
                 type="text"
@@ -85,9 +101,13 @@ function Chatgpt() {
           </form>
         </div>
 
-        <div className="flex justify-end mt-2 h-8 text-xs font-jakarta-sans font-sm  text-gray-300 mr-8">
-          Free Research Preview. ChatGPT may produce inaccurate information. <span className="font-montserrat text-gray-400 underline">ChatGPT May 12 Version</span>
-        </div>
+        <div className="flex justify-end mt-2 h-8 text-xxxs font-jakarta-sans font-sm text-gray-300 mr-8">
+  Free Research Preview. ChatGPT may produce inaccurate information.{" "}
+  <span className="font-montserrat text-xxxs text-gray-400 underline">
+    ChatGPT May 12 Version
+  </span>
+</div>
+
       </div>
     </div>
   );

@@ -113,7 +113,7 @@ const dayOfWeek = getDayOfWeek(currentDateTime); // Example: "Monday"
           alt="Search Icon"
         />
       </div>
-      <div className="flex justify-center mt-2">
+      <div className="flex  mt-2">
         <img
           src={`http://openweathermap.org/img/wn/${weather[0].icon}.png`}
           className="w-[60px] h-[60px]"

@@ -27,7 +27,7 @@ const TodoSearch = ({ searchQuery, setSearchQuery, handleSearch }) => {
         style={{ height: "44px" }}
       />
 
-      <button type="submit" className="ml-3 px-4 bg-blue-500 text-white rounded-md " style={{ height: "44px" }}>
+      <button type="submit" className="ml-3 px-4 bg-blue-700 text-white rounded-md " style={{ height: "44px" }}>
         Search
       </button>
 

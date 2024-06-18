@@ -12,7 +12,7 @@ const Background = (props) => {
   };
 
   return (
-    <div className="fixed top-1/2 right-4 transform -translate-y-1/2 w-[227.28px] h-[500px] rounded-lg p-3 gap-2 bg-gray-900 bg-opacity-50 flex flex-col shadow-lg">
+    <div className="fixed top-1/2 right-4 transform -translate-y-1/2 w-[227.28px] h-[500px] rounded-lg p-3 gap-2 bg-gray-900 bg-opacity-50 flex flex-col shadow-lg ">
       {backgroundList.map((background, index) => (
         <Card
           key={index}

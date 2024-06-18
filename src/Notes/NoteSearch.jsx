@@ -14,7 +14,7 @@ const NoteSearch = ({ searchQuery, setSearchQuery, handleSearch }) => {
   };
 
   return (
-    <form className="flex w-full mb-4 " onSubmit={handleSubmit}>
+    <form className="flex  mb-4 " onSubmit={handleSubmit}>
       <input
         type="text"
         className="border p-2 flex-grow h-11 rounded-md px-4 py-2 w-full text-white focus:border-blue-500 focus:outline-none"
@@ -26,7 +26,7 @@ const NoteSearch = ({ searchQuery, setSearchQuery, handleSearch }) => {
 
       <button
         type="submit"
-        className="ml-1 px-4 bg-blue-500 text-white rounded-md"
+        className="ml-3 px-4 bg-blue-700 text-white rounded-md"
         style={{ height: '44px' }}
       >
         Search
