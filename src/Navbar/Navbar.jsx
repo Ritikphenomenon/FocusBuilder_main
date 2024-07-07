@@ -28,7 +28,7 @@ const Navbar = () => {
      </div>
       
       {userProfile && (
-        <div className="relative mr-[28px]"> {/* Adjust the margin-right as per your requirement */}
+        <div className="relative mr-[8px]"> {/* Adjust the margin-right as per your requirement */}
           <img
             src={userProfile.profilePhoto}
             alt={userProfile.name}

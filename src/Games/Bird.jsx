@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const BIRD_HEIGHT = 28;
 const BIRD_WIDTH = 28;
-const WALL_HEIGHT = 480;
+const WALL_HEIGHT = 520;
 const WALL_WIDTH = 800;
 const GRAVITY = 5;
 const OBJ_WIDTH = 50;
