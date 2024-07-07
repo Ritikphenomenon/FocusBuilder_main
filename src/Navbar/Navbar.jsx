@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import useUserProfile from './useUserProfile';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,14 +21,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-[1400px] h-[55px]  flex justify-end items-center">
-
-     <div>
-      
-     </div>
-      
+    <div className="w-full h-[55px] flex justify-end items-center pr-4"> {/* Adjusted padding right */}
       {userProfile && (
-        <div className="relative mr-4"> {/* Adjust the margin-right as per your requirement */}
+        <div className="relative mr-4"> {/* Added margin right */}
           <img
             src={userProfile.profilePhoto}
             alt={userProfile.name}
