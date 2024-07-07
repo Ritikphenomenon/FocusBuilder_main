@@ -1,7 +1,8 @@
-
-import  { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -25,37 +26,52 @@ function Login() {
         `${import.meta.env.VITE_API_URL}/users/login`,
         formData
       );
-      console.log(response.data); // Optionally, handle success message or redirect to dashboard
-      const { token } = response.data;
-      localStorage.setItem("token", token);
-      navigate("/home"); // Redirect to dashboard after successful login
+
+      if (response.data && response.data.token) {
+        const { token } = response.data;
+        localStorage.setItem("token", token);
+        toast.success("Login successful!", {
+          position: "top-center",
+        });
+        navigate("/home"); // Redirect to dashboard after successful login
+      } else {
+        throw new Error("Invalid response structure");
+      }
     } catch (error) {
-      console.error("Error logging in:", error.response.data.message);
-      setError(error.response.data.message);
+      const errorMessage = error.response?.data?.message || error.message;
+      console.error("Error logging in:", errorMessage);
+      toast.error(errorMessage, {
+        position: "top-center",
+      });
+      setError(errorMessage);
     }
   };
 
   return (
     <div>
+      <ToastContainer />
       <section className="flex justify-between items-center min-h-screen bg-[#12161D] px-6">
-
         <div className="text-white flex flex-col items-start ml-10 mt-10">
-          <div className="text-4xl font-semibold mb-6 ">Logo</div>
-          <div className="text-2xl opacity-80 ">
-            Access to thousands of design 
+          {/* <div className="text-4xl font-semibold mb-6">Logo</div> */}
+          <img className="text-4xl font-semibold mb-6" src="/logo.png" alt="" />
+          
+          <div className="text-2xl opacity-80">
+          With Focusmate by your side, 
           </div>
-          <div className="text-2xl opacity-80 ">
-          resources and templates
+          <div className="text-2xl opacity-80">
+          distractions fade, and productivity soars.
           </div>
           <img
             src="/login.png"
             alt="boy"
-            className="w-[300px] h-[438px] md:w-[479px] "
+            className="w-[300px] h-[438px] md:w-[479px]"
           />
         </div>
 
-        <div className="bg-white rounded-2xl p-10 w-[620px]  ml-0 mr-10">
-          <h2 className="w-28 h-12 font-poppins font-medium text-xl leading-[48px] text-gray-800">Sign In</h2>
+        <div className="bg-white rounded-2xl p-10 w-[620px] ml-0 mr-10">
+          <h2 className="w-28 h-12 font-poppins font-medium text-xl leading-[48px] text-gray-800">
+            Sign In
+          </h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
@@ -106,11 +122,11 @@ function Login() {
               />
               <label
                 htmlFor="remember-me"
-                className="ml-2 block  text-gray-900 font-sans font-normal text-base leading-[1.21rem]"
+                className="ml-2 block text-gray-900 font-sans font-normal text-base leading-[1.21rem]"
               >
-               By creating an account, I agree to our <span className="underline">Terms of use</span>  and
-               <span className="underline">  Privacy Policy </span>
-               
+                By creating an account, I agree to our{" "}
+                <span className="underline">Terms of use</span> and
+                <span className="underline"> Privacy Policy </span>
               </label>
             </div>
 
@@ -119,18 +135,15 @@ function Login() {
                 type="submit"
                 className="w-full flex justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-               Login
+                Login
               </button>
             </div>
           </form>
 
           <p className="mt-6 text-center text-sm text-gray-600">
             Don’t have an account?{" "}
-            <Link
-              to="/"
-              className="font-bold underline"
-            >
-              Sign up 
+            <Link to="/" className="font-bold underline">
+              Sign up
             </Link>
           </p>
         </div>

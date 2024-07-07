@@ -12,7 +12,8 @@ function SetTimerForm({ setSessionLength, setBreakLength, onSubmit }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" p-4    space-y-4 rounded" style={{  backgroundColor: 'rgba(0, 0, 0, 0.2)'  }}>
+    <form onSubmit={handleSubmit} className=" p-4    space-y-4 rounded backdrop-blur-lg
+        relative" style={{  backgroundColor: 'rgba(0, 0, 0, 0.2)'  }}>
       <h2 className="text-2xl font-bold text-white">Session</h2>
       <div className="flex space-x-4">
         <div className="flex flex-col">

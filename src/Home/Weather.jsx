@@ -79,7 +79,7 @@ const formattedTime = formatTime(currentDateTime); // Example: "3:30 PM"
 const dayOfWeek = getDayOfWeek(currentDateTime); // Example: "Monday"
 
   return (
-    <div className="flex flex-col justify-center items-center mr-10 absolute top-20 left-10">
+    <div className="flex flex-col justify-center items-center mr-10 absolute top-6 left-10">
     <div
       className="
         w-[250px] 

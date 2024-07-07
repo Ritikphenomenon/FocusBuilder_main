@@ -68,10 +68,7 @@ function PomodoroClock() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center backdrop-blur-lg relative" style={{
-      background:
-        "linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%)",
-    }}>
+    <div className="flex flex-col items-center justify-center w-auto h-auto " >
       {showForm ? (
         <SetTimerForm
           setSessionLength={setSessionLength}
@@ -79,7 +76,10 @@ function PomodoroClock() {
           onSubmit={() => setShowForm(false)}
         />
       ) : (
-        <div className="flex flex-col items-center justify-center border  rounded-lg w-72 h-96  p-4">
+        <div className="flex flex-col items-center justify-center border  rounded-lg w-[250px] h-auto  p-4 backdrop-blur-lg
+        relative " 
+        style={{  backgroundColor: 'rgba(0, 0, 0, 0.2)'  }}
+        >
           <h1 className="text-2xl font-bold mb-4">{timerLabel}</h1>
          
 

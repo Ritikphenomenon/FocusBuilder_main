@@ -1,20 +1,20 @@
 
 const backgroundList = [
     {
-        url:"./Room.gif",
-        name:"Room"
+        url:"./cloud.mp4",
+        name:"Cloud"
     },
     {
-        url:"./theme/Nature.png",
+        url:"./nature.mp4",
         name:"Nature"
     },
     {
-        url:"./Travel.gif",
-        name:"Travel"
+        url:"./snow.mp4",
+        name:"Snowfall"
     },
     {
-        url:"./theme/Lofi.png",
-        name:"Lofi House"
+        url:"./ocean.mp4",
+        name:"Ocean"
     }
 ]
 

@@ -13,11 +13,14 @@ import Music from "../Music/music";
 import BirdGame from "../Games/Bird";
 import VideoPlayer from "./VideoPlayer";
 import PomodoroClock from "../Pomodoro/Pomodoroclock";
+import Draggable from "react-draggable";
 
 function Home() {
   const [option, setOption] = useState(backgroundList[0]?.url);
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
+  const [music, setmusic] = useState(false);
+  const [pomo, setpomo] = useState(false);
 
   const openModal = (content) => {
     setModalContent(content);
@@ -29,23 +32,61 @@ function Home() {
     setModalContent(null);
   };
 
+  const handle = () => {
+    if (music) setmusic(false);
+    else setmusic(true);
+  };
+
+  const handlepomo = () => {
+    if (pomo) setpomo(false);
+    else setpomo(true);
+  };
+
   return (
     <div className="fixed h-screen">
-      <div
-        className="grid grid-cols-3 h-full bg-fixed bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${option}')` }}
-      >
+      
+      <div className="grid grid-cols-3 h-full relative">
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src={option}
+        autoPlay
+        loop
+        muted
+      />
         <Navbar />
         <Weather />
-
-        <div className="flex flex-col mt-8  space-y-4">
-          <Music />
+       
+        {/* Centered PomodoroClock */}
+        {pomo && (
+          <Draggable>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <PomodoroClock />
+            </div>
+          </Draggable>
+        )}
+           <Draggable>
+        <div className=" mt-10  ">
+          
+        
           <VideoPlayer />
-        </div>
+          </div>
+          </Draggable>
+
+         
+          
+          {/* Centered Music */}
+          {music && (
+            <Draggable>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <Music />
+              </div>
+            </Draggable>
+          )}
+       
       </div>
+      
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-
         <div
           className=" 
          
@@ -68,8 +109,8 @@ function Home() {
             >
               <img src="./icons/Notes.png" alt="Notes" />
               <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-black text-white text-s px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 ">
-        Notes
-      </span>
+                Notes
+              </span>
             </div>
 
             <div
@@ -88,12 +129,12 @@ function Home() {
                 boxShadow:
                   "2.47px 7.42px 27.48px -3.57px rgba(22, 52, 80, 0.1)",
               }}
-              onClick={() => openModal(<PomodoroClock />)}
+              onClick={handlepomo}
             >
               <img src="./icons/Clock.png" alt="Clock" />
               <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-black text-white text-s px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 ">
-        Pomodoro
-      </span>
+                Pomodoro
+              </span>
             </div>
 
             <div
@@ -112,8 +153,8 @@ function Home() {
             >
               <img src="./icons/chatgpt.jpg" alt="logo" className="  h-24  " />
               <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-black text-white text-s px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 ">
-        ChatGPT
-      </span>
+                ChatGPT
+              </span>
             </div>
 
             <div
@@ -140,8 +181,8 @@ function Home() {
               "
               />
               <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-black text-white text-s px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 ">
-        Game
-      </span>
+                Game
+              </span>
             </div>
 
             <div
@@ -152,8 +193,8 @@ function Home() {
             >
               <img src="./icons/Todo.png" alt="Todo" className="w-14 h-14" />
               <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-black text-white text-s px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 ">
-       Todos
-      </span>
+                Todos
+              </span>
             </div>
 
             <div
@@ -171,8 +212,27 @@ function Home() {
             >
               <img src="./icons/theme.png" alt="Theme" />
               <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-black text-white text-s px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 ">
-        Theme
-      </span>
+                Theme
+              </span>
+            </div>
+
+            <div
+              className="
+
+              relative group
+              w-[45.51px] h-[45.51px] rounded-[10.8px] bg-white cursor-pointer pl-1 pt-1
+              mt-1"
+              style={{
+                transform: "rotate(-0.12deg)",
+                boxShadow:
+                  "2.47px 7.42px 27.48px -3.57px rgba(22, 52, 80, 0.1)",
+              }}
+              onClick={handle}
+            >
+              <img src="./icons/Music.png" alt="Theme" />
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-black text-white text-s px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 ">
+                Music
+              </span>
             </div>
           </div>
         </div>
@@ -184,7 +244,7 @@ function Home() {
 
       <dialog id="my_modal_2" className="modal">
         <form method="dialog" className="modal-backdrop ">
-          <Background option={option} setOption={setOption}  />
+          <Background option={option} setOption={setOption} />
           <button></button>
         </form>
       </dialog>

@@ -23,7 +23,9 @@ const Navbar = () => {
   return (
     <div className="w-[1440px] h-[55px] px-[48px] py-[12px] gap-[24px]  bg-opacity-10 flex justify-between items-center" style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}>
 
-      <img src="./focusmate.png" alt="Focusmate Logo" className="ml-[24px] w-30 h-8" /> {/* Adjust the margin-left as per your requirement */}
+     <div>
+      
+     </div>
       
       {userProfile && (
         <div className="relative mr-[28px]"> {/* Adjust the margin-right as per your requirement */}
