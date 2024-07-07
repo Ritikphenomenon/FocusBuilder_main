@@ -21,14 +21,14 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-[1440px] h-[55px] px-[48px] py-[12px] gap-[24px]  bg-opacity-10 flex justify-between items-center" style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}>
+    <div className="w-[1400px] h-[55px]  flex justify-end items-center">
 
      <div>
       
      </div>
       
       {userProfile && (
-        <div className="relative mr-[8px]"> {/* Adjust the margin-right as per your requirement */}
+        <div className="relative mr-4"> {/* Adjust the margin-right as per your requirement */}
           <img
             src={userProfile.profilePhoto}
             alt={userProfile.name}
